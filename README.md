@@ -19,12 +19,12 @@ By doing this the backups files can be stored outside the Stealthwatch environme
 ## Configuration
 
 Open the desired .py file that you intend to run and enter the following values where specified:
-
-   - SMC_USER = ""
-   - SMC_PASSWORD = ""
-   - SMC_HOST = ""
-   - BACKUP_DIR = "" (Please use full path)
-
+   ```
+   SMC_USER = ""
+   SMC_PASSWORD = ""
+   SMC_HOST = ""
+   BACKUP_DIR = "" (Please use full path)
+   ```
 ## Usage
 
 1. Identify the path to your Python 3 executible.
