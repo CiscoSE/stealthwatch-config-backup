@@ -14,6 +14,11 @@ By doing this the backups files can be stored outside the Stealthwatch environme
 1. Ensure Python 3 is installed.
   To download and install Python 3, please visit https://www.python.org.
 2. Ensure the Python requests, json, and os modules are installed.
+  ```
+  $ pip install requests
+  $ pip install json
+  $ pip install os
+  ```
 3. Download the .py files located in the python directory.
 
 ## Configuration
