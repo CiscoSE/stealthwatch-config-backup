@@ -1,7 +1,8 @@
 # Stealthwatch Config Backup
 
 This script will downloaded all config backups from the Stealthwatch Enterprise Central Manager,
-for all the appliances managed by Stealthwatch EnterpriseCentral Manager.
+for all the appliances managed by Stealthwatch Enterprise Central Manager.
+
 It will not create a backup of the Netflow database.
 
 ## Use Case Description
