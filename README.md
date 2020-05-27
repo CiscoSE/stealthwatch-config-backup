@@ -33,7 +33,7 @@ Open the desired .py file that you intend to run and enter the following values 
 ## Usage
 
 1. Identify the path to your Python 3 executible.
-  Depending how Python 3 was installed, this might be as simple as just calling the command python or python3.
+Depending how Python 3 was installed, this might be as simple as just calling the command python or python3.
 2. Run the Python script with the following command:
   $ <PYTHON-PATH> <PYTHON-SCRIPT-PATH>
   Example: $ /usr/bin/python ./swe_backup.py
