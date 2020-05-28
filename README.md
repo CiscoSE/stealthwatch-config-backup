@@ -49,7 +49,8 @@ No known issues.
 Use this project at your own risk (support not provided). If you need technical support with Cisco Stealthwatch APIs, do one of the following:
 
 Browse the Forum
-Check out our forum to pose a question or to see if any questions have already been answered by our community. We monitor these forums on a best effort basis and will periodically post answers.
+Check out our forum to pose a question or to see if any questions have already been answered by our community. 
+We monitor these forums on a best effort basis and will periodically post answers.
 
 Open A Case
 To open a case by web: http://www.cisco.com/c/en/us/support/index.html
