@@ -67,3 +67,4 @@ This project was written and is maintained by the following individuals:
 
 * Ramon Weeling <rweeling@cisco.com>
 * Christopher van der Made <chrivand@cisco.com>
+* Kyle Winters <kywinter@cisco.com>
