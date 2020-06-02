@@ -13,22 +13,28 @@ By doing this the backups files can be stored outside the Stealthwatch environme
 ## Installation
 
 1. Ensure Python 3 is installed
-- To download and install Python 3, please visit https://www.python.org
-2. Download the files cognitive-intelligence-syslog-exporter.py and requirements.txt
+  - To download and install Python 3, please visit https://www.python.org
+2. Download the files swe_backup.py and requirements.txt
 3. Install the necessary python modules with the command: pip install -r requirements.txt
-- ensure you use the correct pip executable for your instance of Python 3
+  - ensure you use the correct pip executable for your instance of Python 3
 
 Alternatively, advanced users can also use git to checkout / clone this project.
 
 ## Configuration
 
-Open the desired .py file that you intend to run and enter the following values where specified:
-   ```
-   SMC_USER = ""
-   SMC_PASSWORD = ""
-   SMC_HOST = ""
-   BACKUP_DIR = "" (Please use full path)
-   ```
+The file env.conf will be generated upon your first run of the script, and will contain the following fields:
+
+```
+[STEALTHWATCH]
+SMC = (The IP address of the SMC)
+USER = (The username on the SMC to use, with 'Master Admin' role)
+PASSWORD = (Encrypted password string [encryption handled on initial config])
+
+[SYSLOG]
+DESTINATION = (The IP address to send the UDP syslog to)
+PORT = (The port to send the UDP syslog to)
+```
+
 ## Usage
 
 1. Identify the path to your Python 3 executible.
