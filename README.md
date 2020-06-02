@@ -50,17 +50,18 @@ No known issues.
 
 ## Getting help
 
-Use this project at your own risk (support not provided)... If you need technical support with Cisco Stealthwatch APIs, do one of the following:
+Use this project at your own risk (support not provided)... ** If you need technical support with Cisco Stealthwatch APIs, do one of the following:**
 
-Browse the Forum
+__Browse the Forum__
+
 Check out our forum to pose a question or to see if any questions have already been answered by our community... we monitor these forums on a best effort basis and will periodically post answers
 
-Open A Case
-To open a case by web: http://www.cisco.com/c/en/us/support/index.html
-To open a case by email: tac@cisco.com
-For phone support: 1-800-553-2447 (U.S.)
-For worldwide support numbers: www.cisco.com/en/US/partner/support/tsd_cisco_worldwide_contacts.html
-If you don't have a Cisco service contract, send an email to swatchc-support@cisco.com describing your problem.
+__Open A Case__
+  - To open a case by web: http://www.cisco.com/c/en/us/support/index.html
+  - To open a case by email: tac@cisco.com
+  - For phone support: 1-800-553-2447 (U.S.)
+  - For worldwide support numbers: www.cisco.com/en/US/partner/support/tsd_cisco_worldwide_contacts.html
+  - If you don't have a Cisco service contract, send an email to swatchc-support@cisco.com describing your problem.
 
 ## Getting involved
 
