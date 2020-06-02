@@ -42,8 +42,7 @@ BACKUP_DIR = (Location where the backup files will be downloaded to)
 3. If running for the first time, enter the request configuration items when prompted
 4. This script is designed to be run as a cronjob after the initial run... it caches the previous run's timestamp and only pulls events that are new or have been updated since the last run
    - To schedule a cronjob, run the command crontab -e and add a new line containing: 0 0/10 * * * <path-to-python-script>
-     - [More info on how to use crontab (https://opensource.com/article/17/11/how-use-cron-linux)]
-     - This site was built using [GitHub Pages](https://pages.github.com/).
+     - [More info on how to use crontab](https://opensource.com/article/17/11/how-use-cron-linux)
 
 ## Known issues
 
