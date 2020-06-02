@@ -29,19 +29,20 @@ The file env.conf will be generated upon your first run of the script, and will 
 SMC = (The IP address of the SMC)
 USER = (The username on the SMC to use, with 'Master Admin' role)
 PASSWORD = (Encrypted password string [encryption handled on initial config])
-
-[SYSLOG]
-DESTINATION = (The IP address to send the UDP syslog to)
-PORT = (The port to send the UDP syslog to)
+BACKUP_DIR = (Location where the backup files will be downloaded to)
 ```
 
 ## Usage
 
-1. Identify the path to your Python 3 executible.
-Depending how Python 3 was installed, this might be as simple as just calling the command python or python3.
+1. Identify the path to your Python 3 executible
+   - Depending how Python 3 was installed, this might be as simple as just calling the command python or python3
 2. Run the Python script with the following command:
-  $ <PYTHON-PATH> <PYTHON-SCRIPT-PATH>
-  Example: $ /usr/bin/python ./swe_backup.py
+   - $ <PYTHON-PATH> swe_backup.py
+   - Example: $ /usr/bin/python ./swe_backup.py
+3. If running for the first time, enter the request configuration items when prompted
+4. This script is designed to be run as a cronjob after the initial run... it caches the previous run's timestamp and only pulls events that are new or have been updated since the last run
+   - To schedule a cronjob, run the command crontab -e and add a new line containing: 0 0/10 * * * <path-to-python-script>
+     - More info on how to use crontab <https://opensource.com/article/17/11/how-use-cron-linux>
 
 
 ## Known issues
