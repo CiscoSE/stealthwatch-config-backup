@@ -12,15 +12,13 @@ By doing this the backups files can be stored outside the Stealthwatch environme
 
 ## Installation
 
-1. Ensure Python 3 is installed.
-  To download and install Python 3, please visit https://www.python.org.
-2. Ensure the Python requests, json, and os modules are installed.
-  ```
-  $ pip install requests
-  $ pip install json
-  $ pip install os
-  ```
-3. Download the .py files located in the python directory.
+1. Ensure Python 3 is installed
+- To download and install Python 3, please visit https://www.python.org
+2. Download the files cognitive-intelligence-syslog-exporter.py and requirements.txt
+3. Install the necessary python modules with the command: pip install -r requirements.txt
+- ensure you use the correct pip executable for your instance of Python 3
+
+Alternatively, advanced users can also use git to checkout / clone this project.
 
 ## Configuration
 
@@ -46,17 +44,17 @@ No known issues.
 
 ## Getting help
 
-Use this project at your own risk (support not provided). If you need technical support with Cisco Stealthwatch APIs, do one of the following:
+Use this project at your own risk (support not provided)... If you need technical support with Cisco Stealthwatch APIs, do one of the following:
 
 Browse the Forum
-Check out our forum to pose a question or to see if any questions have already been answered by our community.
-We monitor these forums on a best effort basis and will periodically post answers.
+Check out our forum to pose a question or to see if any questions have already been answered by our community... we monitor these forums on a best effort basis and will periodically post answers
 
 Open A Case
 To open a case by web: http://www.cisco.com/c/en/us/support/index.html
 To open a case by email: tac@cisco.com
 For phone support: 1-800-553-2447 (U.S.)
 For worldwide support numbers: www.cisco.com/en/US/partner/support/tsd_cisco_worldwide_contacts.html
+If you don't have a Cisco service contract, send an email to swatchc-support@cisco.com describing your problem.
 
 ## Getting involved
 
