@@ -50,7 +50,7 @@ No known issues.
 
 ## Getting help
 
-Use this project at your own risk (support not provided)... _ _If you need technical support with Cisco Stealthwatch APIs, do one of the following:_ _
+Use this project at your own risk (support not provided)... _If you need technical support with Cisco Stealthwatch APIs, do one of the following:_
 
 __Browse the Forum__
 
