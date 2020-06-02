@@ -15,7 +15,7 @@ By doing this the backups files can be stored outside the Stealthwatch environme
 1. Ensure Python 3 is installed
    - To download and install Python 3, please visit https://www.python.org
 2. Download the files swe_backup.py and requirements.txt
-3. Install the necessary python modules with the command: pip install -r requirements.txt
+3. Install the necessary python modules with the command: ``` pip install -r requirements.txt ```
    - ensure you use the correct pip executable for your instance of Python 3
 
 Alternatively, advanced users can also use git to checkout / clone this project.
