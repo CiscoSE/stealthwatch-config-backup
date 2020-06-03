@@ -39,7 +39,7 @@ If you do not add anything, you will be prompted to fill this in when executing 
 
 ## Known issues
 
-No known issues.
+The script only downloads the backups it does not remove any backup from the path is downloads the backups to.
 
 ## Getting help
 
