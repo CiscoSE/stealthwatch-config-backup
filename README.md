@@ -22,15 +22,8 @@ Alternatively, advanced users can also use git to checkout / clone this project.
 
 ## Configuration
 
-The file env.conf will be generated upon your first run of the script, and will contain the following fields:
-
-```
-[STEALTHWATCH]
-SMC = (The IP address of the SMC)
-USER = (The username on the SMC to use, with 'Master Admin' role)
-PASSWORD = (Encrypted password string [encryption handled on initial config])
-BACKUP_DIR = (Location where the backup files will be downloaded to)
-```
+You need the IP address (or domain name) of the SMC, the username and password. These will be requested by the script the first time it is run. It is recommended to create a separate SMC login account for API usage, otherwise the admin will be logged out during every API calls. Add the IP/Domain of SMC, the username and password to the config.json file. You also need the full path of where the script will download all the backup files.
+If you do not add anything, you will be prompted to fill this in when executing the script.
 
 ## Usage
 
