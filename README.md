@@ -27,7 +27,7 @@ If you do not add anything, you will be prompted to fill this in when executing 
 
 ## Usage
 
-1. Identify the path to your Python 3 executible
+1. Identify the path to your Python 3 executable
    - Depending how Python 3 was installed, this might be as simple as just calling the command python or python3
 2. Run the Python script with the following command:
    - $ <PYTHON-PATH> swe_backup.py
