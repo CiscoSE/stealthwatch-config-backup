@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 
-
 """
 This script will download all the config backups from the SMC off all applinaces
 It will check if the backup has already been downloaded, if so it will skip it
@@ -16,10 +15,8 @@ Depencency Installation:
     $ pip install json
     $ pip install os
 
-
 System Requirements:
     Stealthwatch Version: 7.0.0 or higher
-
 
 Copyright (c) 2019, Cisco Systems, Inc. All rights reserved.
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -39,7 +36,6 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """
 
-
 import requests
 import getpass
 import json
@@ -53,9 +49,6 @@ except:
 # Config Paramters
 CONFIG_FILE     = "config.json"
 CONFIG_DATA     = None
-
-# Object Prefix
-OBJECT_PREFIX = ""
 
 # A function to load CONFIG_DATA from file
 def loadConfig():
@@ -103,7 +96,7 @@ def saveConfig():
 # Load config data from file
 loadConfig()
 
-# If not hard coded, get the FMC IP, Username, and Password
+# If not hard coded, get the SMC IP, Username, Password and Backup Directory
 if CONFIG_DATA['SMC_HOST'] == '':
     CONFIG_DATA['SMC_HOST'] = input("SMC IP Address: ")
 if CONFIG_DATA['SMC_USER'] == '':
