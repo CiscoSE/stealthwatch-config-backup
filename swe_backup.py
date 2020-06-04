@@ -147,6 +147,10 @@ if(response.status_code == 200):
     for SW_appliance in returned_data:
         list_ids.append(SW_appliance["id"])
 
+    sys.stdout.write("\n")
+    sys.stdout.write("Getting the config backup file list for each appliance")
+    sys.stdout.write("\n")
+
     for id in list_ids:
         url = "https://" + CONFIG_DATA['SMC_HOST'] +"/cm/support/appliance/" + id + "/config-backup-file-list"
         response = api_session.request("GET", url,  verify=False,)
@@ -154,6 +158,10 @@ if(response.status_code == 200):
         returned_data = json.loads(response.text)
 
         my_dict = returned_data
+
+        sys.stdout.write("\n")
+        sys.stdout.write("Getting the file list for each appliance with id" )
+        sys.stdout.write("\n")
 
         for key in my_dict:
             my_list = ( list( my_dict.values() )[1] )
@@ -165,7 +173,10 @@ if(response.status_code == 200):
 
             backup_list =[]
 
-            # Check if file is already backuped and download if its not
+            sys.stdout.write("\n")
+            sys.stdout.write("Check if each file has been downloaded already")
+            sys.stdout.write("\n")
+
             for file in list_filenames:
                 if  not file in list_of_backups:
                     sys.stdout.write("From appliance " + id + " we are missing " + file + " downloading")
