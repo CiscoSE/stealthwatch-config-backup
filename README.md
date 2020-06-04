@@ -1,4 +1,4 @@
-# Stealthwatch Config Backup
+# Stealthwatch Enterprise Config Backup
 
 This script will downloaded all config backups from the Stealthwatch Enterprise Central Manager,
 for all the appliances managed by Stealthwatch Enterprise Central Manager.
