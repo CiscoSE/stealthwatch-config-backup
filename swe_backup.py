@@ -165,13 +165,14 @@ if(response.status_code == 200):
 
         for key in my_dict:
             my_list = ( list( my_dict.values() )[1] )
+            sys.stdout.write("\n")
+            print(my_list)
+            sys.stdout.write("\n")
 
             list_filenames = []
 
             for filename in my_list:
                 list_filenames.append(filename["fileName"])
-
-            backup_list =[]
 
             sys.stdout.write("\n")
             sys.stdout.write("Check if each file has been downloaded already")
