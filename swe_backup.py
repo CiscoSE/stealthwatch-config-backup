@@ -190,7 +190,6 @@ if(response.status_code == 200):
     url = "https://" + CONFIG_DATA['SMC_HOST'] +"/token"
     response = api_session.delete(url, timeout=30, verify=False)
 
-
 # If the login was unsuccessful
 else:
         print("An error has ocurred, while logging in, with the following code {}".format(response.status_code))
