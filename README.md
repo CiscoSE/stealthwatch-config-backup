@@ -4,7 +4,7 @@ This script will downloaded all config backups from the Stealthwatch Enterprise 
 for all the appliances managed by Stealthwatch Enterprise Central Manager.
 
 It will not create a backup of the flow data on every Flow Collector.
-The script will only download the backups it does not remove any backups from the path where the backups are downloaded to.
+The script will only download the config backups it does not remove any backups from the path where the backups are downloaded to.
 
 
 ## Use Case Description
