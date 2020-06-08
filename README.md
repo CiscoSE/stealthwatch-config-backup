@@ -23,7 +23,7 @@ By doing this the backups files can be stored outside the Stealthwatch environme
 _Alternatively, advanced users can also use git to checkout / clone this project._
 ## Configuration
 
-You need the IP address (or domain name) of the SMC, the username and password. These will be requested by the script the first time it is run. It is recommended to create a separate SMC login account for API usage, otherwise the admin will be logged out during every API call. Add the IP/Domain of SMC, the username and password to the config.json file. You also need the full path of where the script will download all the backup files.
+You need the IP address (or domain name) of the SMC, the username and password. These will be requested by the script the first time it is run. It is recommended to create a separate SMC login account for API usage, otherwise the admin will be logged out during every API call. Add the IP of the SMC, the username and password to the config.json file. You also need the full path of where the script will download all the backup files.
 If you do not add anything, you will be prompted to fill this in when executing the script.
 
 ## Usage
