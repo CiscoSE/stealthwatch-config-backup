@@ -14,26 +14,26 @@ Depencency Installation:
     $ pip install requests
     $ pip install json
     $ pip install os
+    $ pip install sys
+    $ pip install getpass
 
 System Requirements:
     Stealthwatch Version: 7.0.0 or higher
 
-Copyright (c) 2019, Cisco Systems, Inc. All rights reserved.
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+Copyright (c) 2020 Cisco and/or its affiliates.
+
+This software is licensed to you under the terms of the Cisco Sample
+Code License, Version 1.0 (the "License"). You may obtain a copy of the
+License at
+
+               https://developer.cisco.com/docs/licenses
+
+All use of the material herein must be in accordance with the terms of
+the License. All rights not expressly granted by the License are
+reserved. Unless required by applicable law or agreed to separately in
+writing, software distributed under the License is distributed on an "AS
+IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
+or implied.
 """
 
 import requests
@@ -106,12 +106,15 @@ if CONFIG_DATA['SMC_PASSWORD'] == '':
 if CONFIG_DATA['BACKUP_DIR'] == '':
     CONFIG_DATA['BACKUP_DIR'] = input("\nBACKUP Directory: ")
 
+## Save the Config
+saveConfig()
+
 # Get the list of current backupped files
+print("Get the list all already backupped files")
 list_of_backups = os.listdir(CONFIG_DATA['BACKUP_DIR'])
 
 # Set the URL for SMC login
 url = "https://" + CONFIG_DATA['SMC_HOST'] +"/token/v2/authenticate"
-print(url)
 
 # Let's create the login request data
 login_request_data = {
@@ -129,6 +132,7 @@ response = api_session.request("POST", url, verify=False, data=login_request_dat
 if(response.status_code == 200):
 
     # Set the url for getting the appliance list
+    print("Getting the appliance list")
     url = "https://" + CONFIG_DATA['SMC_HOST'] +"/cm/inventory/appliances/"
 
     # Perform the query to get the appliance list
@@ -146,43 +150,30 @@ if(response.status_code == 200):
 
     for SW_appliance in returned_data:
         list_ids.append(SW_appliance["id"])
-        print(SW_appliance)
-
-    sys.stdout.write("\n")
-    sys.stdout.write("Getting the config backup file list for each appliance")
-    sys.stdout.write("\n")
 
     for id in list_ids:
         url = "https://" + CONFIG_DATA['SMC_HOST'] +"/cm/support/appliance/" + id + "/config-backup-file-list"
         response = api_session.request("GET", url,  verify=False,)
 
         returned_data = json.loads(response.text)
-
         my_dict = returned_data
 
         sys.stdout.write("\n")
-        sys.stdout.write("Getting the file list for each appliance with id" )
+        sys.stdout.write("Downloading backups for appliance with ID: ")
+        sys.stdout.write(id)
         sys.stdout.write("\n")
 
-        for key in my_dict:
-            my_list = ( list( my_dict.values() )[1] )
-            sys.stdout.write("\n")
-            print(my_list)
-            sys.stdout.write("\n")
-
+        for key in my_dict["configBackups"]:
             list_filenames = []
 
-            for filename in my_list:
-                list_filenames.append(filename["fileName"])
-
-            sys.stdout.write("\n")
-            sys.stdout.write("Check if each file has been downloaded already")
-            sys.stdout.write("\n")
+            list_filenames.append(key["fileName"])
 
             for file in list_filenames:
                 if  not file in list_of_backups:
-                    sys.stdout.write("From appliance " + id + " we are missing " + file + " downloading")
                     sys.stdout.write("\n")
+                    sys.stdout.write("" + file + " has not been downloaded yet, downloading it now")
+                    sys.stdout.write("\n")
+
                     url = "https://" + CONFIG_DATA['SMC_HOST'] +"/cm/support/appliance/" + id + "/" + file + "/config-backup-file"
                     response = api_session.request("GET", url,  verify=False,)
                     myfilename = file
