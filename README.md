@@ -30,13 +30,13 @@ If you do not add anything, you will be prompted to fill this in when executing 
 ## Usage
 
 1. Identify the path to your Python 3 executable
-   - Depending how Python 3 was installed, this might be as simple as just calling the command python or python3
+   - Depending how Python 3 was installed, this might be as simple as just calling the command ``` python ``` or ``` python3 ```
 2. Run the Python script with the following command:
-   - $ <PYTHON-PATH> swe_backup.py
-   - Example: $ /usr/bin/python ./swe_backup.py
+   - ``` $ <PYTHON-PATH> swe_backup.py ```
+   - Example: ``` $ /usr/bin/python ./swe_backup.py ```
 3. If running for the first time, enter the request configuration items when prompted
 4. This script is designed to be run as a cronjob after the initial run... it caches the previous run's timestamp and only pulls events that are new or have been updated since the last run
-   - To schedule a cronjob, run the command crontab -e and add a new line containing: 0 0/10 * * * <path-to-python-script>
+   - To schedule a cronjob, run the command crontab -e and add a new line containing: ``` 0 0/10 * * * <path-to-python-script> ```
      - [More info on how to use crontab](https://opensource.com/article/17/11/how-use-cron-linux)
 
 ## Known issues
@@ -60,7 +60,12 @@ __Open A Case__
 
 ## Getting involved
 
-Contributions to this code are welcome and appreciated. See CONTRIBUTING for details. Please adhere to our Code of Conduct at all times.
+Contributions to this code are welcome and appreciated. See [CONTRIBUTING[(https://github.com/CiscoDevNet/cognitive-intelligence-syslog-exporter/blob/master/CONTRIBUTING.md)] for details. Please adhere to our [Code of Conduct](https://github.com/CiscoDevNet/cognitive-intelligence-syslog-exporter/blob/master/CODE_OF_CONDUCT.md) at all times.
+
+## License info
+
+This code is licensed under the BSD 3-Clause License... see [LICENSE](https://github.com/CiscoDevNet/cognitive-intelligence-syslog-exporter/blob/master/LICENSE) for details
+
 
 ## Author(s)
 
