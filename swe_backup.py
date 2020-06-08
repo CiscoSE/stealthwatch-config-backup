@@ -36,6 +36,12 @@ IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
 or implied.
 """
 
+__author__ = "Ramon Weeling"
+__email__ = "rweeling@cisco.com"
+__version__ = "1.0.0"
+__copyright__ = "Copyright (c) 2020 Cisco and/or its affiliates."
+__license__ = "Cisco Sample Code License, Version 1.1"
+
 import requests
 import getpass
 import json
