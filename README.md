@@ -20,7 +20,7 @@ By doing this the backups files can be stored outside the Stealthwatch environme
 3. Install the necessary python modules with the command: ``` pip install -r requirements.txt ```
    - ensure you use the correct pip executable for your instance of Python 3
 
-Alternatively, advanced users can also use git to checkout / clone this project.
+_ _ Alternatively, advanced users can also use git to checkout / clone this project. _ _
 
 ## Configuration
 
