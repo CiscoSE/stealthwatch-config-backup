@@ -16,7 +16,7 @@ By doing this the backups files can be stored outside the Stealthwatch environme
 
 1. Ensure Python 3 is installed
    - To download and install Python 3, please visit https://www.python.org
-2. Download the files swe_backup.py and requirements.txt
+2. Download the files [swe_backup.py](https://github.com/rweeling/stealthwatch-config-backup/blob/master/swe_backup.py) and [requirements.txt](https://github.com/rweeling/stealthwatch-config-backup/blob/master/requirements.txt)
 3. Install the necessary python modules with the command: ``` pip install -r requirements.txt ```
    - ensure you use the correct pip executable for your instance of Python 3
 
@@ -60,7 +60,7 @@ __Open A Case__
 
 ## Getting involved
 
-Contributions to this code are welcome and appreciated. See [CONTRIBUTING](https://github.com/CiscoDevNet/cognitive-intelligence-syslog-exporter/blob/master/CONTRIBUTING.md)] for details. Please adhere to our [Code of Conduct](https://github.com/CiscoDevNet/cognitive-intelligence-syslog-exporter/blob/master/CODE_OF_CONDUCT.md) at all times.
+Contributions to this code are welcome and appreciated. See [CONTRIBUTING](https://github.com/CiscoDevNet/cognitive-intelligence-syslog-exporter/blob/master/CONTRIBUTING.md) for details. Please adhere to our [Code of Conduct](https://github.com/CiscoDevNet/cognitive-intelligence-syslog-exporter/blob/master/CODE_OF_CONDUCT.md) at all times.
 
 ## License info
 
