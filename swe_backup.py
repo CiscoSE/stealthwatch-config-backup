@@ -135,7 +135,6 @@ response = api_session.request("POST", url, verify=False, data=login_request_dat
 if(response.status_code == 200):
 
     # Set the url for getting the appliance list
-    print("Getting the appliance list")
     url = "https://" + CONFIG_DATA['SMC_HOST'] +"/cm/inventory/appliances/"
 
     # Perform the query to get the appliance list
