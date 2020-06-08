@@ -158,14 +158,14 @@ if(response.status_code == 200):
         response = api_session.request("GET", url,  verify=False,)
 
         returned_data = json.loads(response.text)
-        my_dict = returned_data
+        config_backup_file_list = returned_data
 
         sys.stdout.write("\n")
         sys.stdout.write("Downloading backups for appliance with ID: ")
         sys.stdout.write(id)
         sys.stdout.write("\n")
 
-        for key in my_dict["configBackups"]:
+        for key in config_backup_file_list["configBackups"]:
             list_filenames = []
 
             list_filenames.append(key["fileName"])
