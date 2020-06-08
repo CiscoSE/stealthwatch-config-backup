@@ -146,6 +146,7 @@ if(response.status_code == 200):
 
     for SW_appliance in returned_data:
         list_ids.append(SW_appliance["id"])
+        print(SW_appliance)
 
     sys.stdout.write("\n")
     sys.stdout.write("Getting the config backup file list for each appliance")
