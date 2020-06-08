@@ -110,7 +110,10 @@ if CONFIG_DATA['BACKUP_DIR'] == '':
 saveConfig()
 
 # Get the list of current backupped files
-print("Get the list all already backupped files")
+sys.stdout.write("\n")
+sys.stdout.write("Get the list all already backupped files")
+sys.stdout.write("\n")
+
 list_of_backups = os.listdir(CONFIG_DATA['BACKUP_DIR'])
 
 # Set the URL for SMC login
