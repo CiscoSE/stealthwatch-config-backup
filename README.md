@@ -20,6 +20,9 @@ By using this script the backups files can be stored outside the Stealthwatch en
 2. Download the files [swe_backup.py](https://github.com/rweeling/stealthwatch-config-backup/blob/master/swe_backup.py) and [requirements.txt](https://github.com/rweeling/stealthwatch-config-backup/blob/master/requirements.txt)
 3. Install the necessary python modules with the command: ``` pip install -r requirements.txt ```
    - ensure you use the correct pip executable for your instance of Python 3
+4. Stealthwatch user credentials with the "Master Admin" role assigned.
+   - User roles are configured in the Stealthwatch web interface. Simply navigate to _Global Settings -> User Management_.
+
 
 _Alternatively, advanced users can also use git to checkout / clone this project._
 ## Configuration
@@ -27,8 +30,6 @@ _Alternatively, advanced users can also use git to checkout / clone this project
 You need the IP address (or domain name) of the SMC, the username, password and the full path of where the script will download all the backup files.
 It is recommended to create a separate SMC login account for API usage, otherwise the admin will be logged out during every API call. Add the IP of the SMC, the username, password and the path to the config.json file. If you do not add anything, you will be prompted to fill this in when executing the script.  
 _Its recommended to create unique credentials for scripting/API purposes._
-- Stealthwatch user credentials with the "Master Admin" role assigned.
-User roles are configured in the Stealthwatch web interface. Simply navigate to Global Settings -> User Management.
 
 ## Usage
 
