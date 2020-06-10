@@ -1,5 +1,5 @@
 {
-    "SMC_HOST": "",
+    "SMC_IP": "",
     "SMC_USER": "",
     "SMC_PASSWORD": "",
     "BACKUP_DIR": ""
