@@ -25,6 +25,24 @@ By using this script the backups files can be stored outside the Stealthwatch en
 
 
 _Alternatively, advanced users can also use git to checkout / clone this project._
+
+
+1. Clone the repo
+   - ``` git clone https://github.com/CiscoSE/stealthwatch-config-backup ```
+
+2. cd into directory
+   - ``` cd stealthwatch-config-backup ```
+
+3. Create the virtual environment in a sub dir in the same directory
+   - ``` python3 -m venv venv ```
+
+4. Start the virtual environment and install requirements.txt from the <swe_backup>
+   - ``` source venv/bin/activate ```
+   - ``` pip install -r requirements.txt ```
+
+5. Execute the script as any other Python script form console. Check the reachability to FMC. Script is tested on FMC 6.3.
+   - ``` python swe_backup.py ```
+
 ## Configuration
 
 You need the IP address (or domain name) of the SMC, the username, password and the full path of where the script will download all the backup files.
