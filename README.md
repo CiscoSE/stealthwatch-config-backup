@@ -17,7 +17,7 @@ By using this script the backups files can be stored outside the Stealthwatch en
 
 1. Ensure Python 3 is installed
    - To download and install Python 3, please visit https://www.python.org
-2. Download the files [swe_backup.py](https://github.com/rweeling/stealthwatch-config-backup/blob/master/swe_backup.py) and [requirements.txt](https://github.com/rweeling/stealthwatch-config-backup/blob/master/requirements.txt)
+2. Download the files [swe_backup.py](https://github.com/CiscoSE/stealthwatch-config-backup/blob/master/swe_backup.py), [requirements.txt](https://github.com/CiscoSE/stealthwatch-config-backup/blob/master/requirements.txt) and [config.json](https://github.com/CiscoSE/stealthwatch-config-backup/blob/master/config.json)
 3. Install the necessary python modules with the command: ``` pip install -r requirements.txt ```
    - ensure you use the correct pip executable for your instance of Python 3
 4. Stealthwatch user credentials with the "Master Admin" role assigned.
@@ -48,6 +48,10 @@ _Alternatively, advanced users can also use git to checkout / clone this project
 You need the IP address (or domain name) of the SMC, the username, password and the full path of where the script will download all the backup files.
 It is recommended to create a separate SMC login account for API usage, otherwise the admin will be logged out during every API call. Add the IP of the SMC, the username, password and the path to the config.json file. If you do not add anything, you will be prompted to fill this in when executing the script.  
 _Its recommended to create unique credentials for scripting/API purposes._
+
+## Testing
+
+If you want to test this script before using it in a production enviroment you can leverage the [DevNet Stealthwatch Sandbox Enviroment](https://devnetsandbox.cisco.com/RM/Diagram/Index/3c832112-cf88-4e74-a439-6fdb47a5882e?diagramType=Topology)
 
 ## Usage
 
