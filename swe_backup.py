@@ -84,7 +84,7 @@ def loadConfig():
 
         # Set the CONFIG_DATA defaults
         CONFIG_DATA = {
-            "SMC_HOST": "",
+            "SMC_IP": "",
             "SMC_USER": "",
             "SMC_PASSWORD": "",
             "BACKUP_DIR": "",
@@ -103,8 +103,8 @@ def saveConfig():
 loadConfig()
 
 # If not hard coded, get the SMC IP, Username, Password and Backup Directory
-if CONFIG_DATA['SMC_HOST'] == '':
-    CONFIG_DATA['SMC_HOST'] = input("SMC IP Address: ")
+if CONFIG_DATA['SMC_IP'] == '':
+    CONFIG_DATA['SMC_IP'] = input("SMC IP Address: ")
 if CONFIG_DATA['SMC_USER'] == '':
     CONFIG_DATA['SMC_USER'] = input("\nSMC Username: ")
 if CONFIG_DATA['SMC_PASSWORD'] == '':
@@ -123,7 +123,7 @@ sys.stdout.write("\n")
 list_of_backups = os.listdir(CONFIG_DATA['BACKUP_DIR'])
 
 # Set the URL for SMC login
-url = "https://" + CONFIG_DATA['SMC_HOST'] +"/token/v2/authenticate"
+url = "https://" + CONFIG_DATA['SMC_IP'] +"/token/v2/authenticate"
 
 # Let's create the login request data
 login_request_data = {
@@ -141,7 +141,7 @@ response = api_session.request("POST", url, verify=False, data=login_request_dat
 if(response.status_code == 200):
 
     # Set the url for getting the appliance list
-    url = "https://" + CONFIG_DATA['SMC_HOST'] +"/cm/inventory/appliances/"
+    url = "https://" + CONFIG_DATA['SMC_IP'] +"/cm/inventory/appliances/"
 
     # Perform the query to get the appliance list
 
@@ -160,7 +160,7 @@ if(response.status_code == 200):
         list_ids.append(SW_appliance["id"])
 
     for id in list_ids:
-        url = "https://" + CONFIG_DATA['SMC_HOST'] +"/cm/support/appliance/" + id + "/config-backup-file-list"
+        url = "https://" + CONFIG_DATA['SMC_IP'] +"/cm/support/appliance/" + id + "/config-backup-file-list"
         response = api_session.request("GET", url,  verify=False,)
 
         returned_data = json.loads(response.text)
@@ -182,7 +182,7 @@ if(response.status_code == 200):
                     sys.stdout.write("" + file + " has not been downloaded yet, downloading it now")
                     sys.stdout.write("\n")
 
-                    url = "https://" + CONFIG_DATA['SMC_HOST'] +"/cm/support/appliance/" + id + "/" + file + "/config-backup-file"
+                    url = "https://" + CONFIG_DATA['SMC_IP'] +"/cm/support/appliance/" + id + "/" + file + "/config-backup-file"
                     response = api_session.request("GET", url,  verify=False,)
                     myfilename = file
                     mydirname = CONFIG_DATA['BACKUP_DIR']
@@ -193,7 +193,7 @@ if(response.status_code == 200):
                 else:
                     sys.stdout.write("" + file + " has been downloaded already")
                     sys.stdout.write("\n")
-    url = "https://" + CONFIG_DATA['SMC_HOST'] +"/token"
+    url = "https://" + CONFIG_DATA['SMC_IP'] +"/token"
     response = api_session.delete(url, timeout=30, verify=False)
 
 # If the login was unsuccessful
