@@ -36,7 +36,7 @@ _Alternatively, advanced users can also use git to checkout / clone this project
 3. Create the virtual environment in a sub dir in the same directory
    - ``` python3 -m venv venv ```
 
-4. Start the virtual environment and install requirements.txt from the <swe_backup>
+4. Start the virtual environment and install requirements.txt
    - ``` source venv/bin/activate ```
    - ``` pip install -r requirements.txt ```
 
