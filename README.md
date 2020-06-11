@@ -8,6 +8,8 @@ for all the appliances managed by Stealthwatch Enterprise Central Manager.
 It will not create a backup of the flow data on every Flow Collector.
 The script will only download the config backups. And the script does not remove any backups from the path where the backups are downloaded to.
 
+This script is available for use by the Cisco DevNet community through Code Exchange. For more information on the Stealthwatch Enterprise REST API, please see the following link: https://developer.cisco.com/docs/stealthwatch/enterprise/
+
 
 ## Use Case Description
 
