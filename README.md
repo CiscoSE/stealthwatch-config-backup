@@ -13,7 +13,7 @@ This script is available for use by the Cisco DevNet community through Code Exch
 
 ## Use Case Description
 
-This script uses the Stealthwatch Enterprise API's to download all backups files present on Central Management.  
+This script uses the Stealthwatch Enterprise API's to download all backups files present in Central Management.  
 By using this script the backups files can be stored outside the Stealthwatch environment for save keeping.
 
 ## Installation
