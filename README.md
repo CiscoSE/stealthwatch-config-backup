@@ -40,7 +40,7 @@ _Alternatively, advanced users can also use git to checkout / clone this project
    - ``` source venv/bin/activate ```
    - ``` pip install -r requirements.txt ```
 
-5. Execute the script as any other Python script form console. Check the reachability to FMC. Script is tested on FMC 6.3.
+5. Execute the script as any other Python script form console. Check the reachability to SMC before executing this script. Script is tested on SMC 7.0 and higher.
    - ``` python swe_backup.py ```
 
 ## Configuration
