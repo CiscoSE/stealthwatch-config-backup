@@ -26,9 +26,7 @@ By using this script the backups files can be stored outside the Stealthwatch en
 4. Stealthwatch user credentials with the "Master Admin" role assigned.
    - User roles are configured in the Stealthwatch web interface. Simply navigate to _Global Settings -> User Management_.
 
-
 _Alternatively, advanced users can also use git to checkout / clone this project._
-
 
 1. Clone the repo
    - ``` git clone https://github.com/CiscoSE/stealthwatch-config-backup ```
