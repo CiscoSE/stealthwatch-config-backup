@@ -10,6 +10,15 @@ The script will only download the config backups. And the script does not remove
 
 This script is available for use by the Cisco DevNet community through Code Exchange. For more information on the Stealthwatch Enterprise REST API, please see the following link: https://developer.cisco.com/docs/stealthwatch/enterprise/
 
+## Release notes
+
+Version 1.0.0  
+- Initial release
+
+Version 1.1.2  
+- Start using a logfile  
+- WebEx Teams support  
+- Email of logfile  
 
 ## Use Case Description
 
@@ -25,8 +34,12 @@ By using this script the backups files can be stored outside the Stealthwatch en
    - ensure you use the correct pip executable for your instance of Python 3
 4. Stealthwatch user credentials with the "Master Admin" role assigned.
    - User roles are configured in the Stealthwatch web interface. Simply navigate to _Global Settings -> User Management_.
+5. It is possible to integrate the script with Webex Teams. In order to do that, an API Access Token (WEBEX_ACCESS_TOKEN) and a Room ID (WEBEX_ROOM_IDneed to be entered in the config.json file. Please retrieve your key from: https://developer.webex.com/docs/api/getting-started. Then create a dedicated Webex Teams space for these notifications and retrieve the Room ID from: https://developer.webex.com/docs/api/v1/rooms/list-rooms. Please be aware that the personal token from the getting started page only works for 12 hours. To be able to have a key that works longer then 12 hours its recommended to leverage a [Webex Teams bot](https://developer.webex.com/my-apps/new/bot) and invite that bot to a  room for the notifications.
+6. It is also possible to have the script send it log file (swe_backup.log) using email. For this you need to configure the options Email subject (MAIL_SUBJECT), adress to send email to (TO_EMAIL), from email address (FROM_EMAIL), and SMPT Server to us (SMTP_SERVER) in config.json.
+
 
 _Alternatively, advanced users can also use git to checkout / clone this project._
+
 
 1. Clone the repo
    - ``` git clone https://github.com/CiscoSE/stealthwatch-config-backup ```
@@ -47,7 +60,7 @@ _Alternatively, advanced users can also use git to checkout / clone this project
 ## Configuration
 
 You need the IP address of the SMC, the username, password and the full path of where the script will download all the backup files.
-It is recommended to create a separate SMC login account for API usage, otherwise the admin will be logged out during every API call. Add the IP of the SMC, the username, password and the path to the config.json file. If you do not add anything, you will be prompted to fill this in when executing the script.  
+It is recommended to create a separate SMC login account for API usage, otherwise the admin will be logged out during every API call. Add the IP of the SMC (SMC_IP), the username (SMC_USER), password (SMC_PASSWORD) and the path where the backups needs to be stored (BACKUP_DIR) to the config.json file. If you do not add anything, you will be prompted to fill this in when executing the script.  
 _Its recommended to create unique credentials for scripting/API purposes._
 
 ## Testing
@@ -65,6 +78,8 @@ If you want to test this script before using it in a production enviroment you c
 4. This script is designed to be run as a cronjob after the initial run... it caches the previous run's timestamp and only pulls events that are new or have been updated since the last run
    - To schedule a cronjob, run the command crontab -e and add a new line containing: ``` 0 0/10 * * * <path-to-python-script> ```
      - [More info on how to use crontab](https://opensource.com/article/17/11/how-use-cron-linux)
+     - Example crontab entry to run the script everyday at 0:25
+       - ``` 25 0 * * * /usr/bin/env bash -c 'cd <path to stealthwatch-config-backup> && source <path to stealthwatch-config-backup>/venv/bin/activate && <path to stealthwatch-config-backup>/venv/bin/python swe_backup.py' > /dev/null 2>&1 ```
 
 ## Known issues
 
