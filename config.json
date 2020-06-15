@@ -2,5 +2,11 @@
     "SMC_IP": "",
     "SMC_USER": "",
     "SMC_PASSWORD": "",
-    "BACKUP_DIR": ""
+    "BACKUP_DIR": "",
+    "EMAIL_SUBJECT": "",
+    "TO_EMAIL": "",
+    "FROM_EMAIL": "",
+    "SMTP_SERVER": "",
+    "WEBEX_ACCESS_TOKEN": "",
+    "WEBEX_ROOM_ID": ""
 }
