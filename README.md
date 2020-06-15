@@ -23,7 +23,7 @@ Version 1.1.2
 ## Use Case Description
 
 This script uses the Stealthwatch Enterprise API's to download all backups files present in Central Management.  
-By using this script the backups files can be stored outside the Stealthwatch environment for save keeping.
+By using this script, the backups files can be stored outside the Stealthwatch environment for save keeping.
 
 ## Installation
 
