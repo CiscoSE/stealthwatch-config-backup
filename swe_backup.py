@@ -197,7 +197,7 @@ if(response.status_code == 200):
         returned_data = json.loads(response.text)
         config_backup_file_list = returned_data
 
-        logger.info("Downloading backups for appliance with ID:")
+        logger.info("Downloading backups for appliance with ID: "  + id + "")
 
         for key in config_backup_file_list["configBackups"]:
             list_filenames = []
@@ -311,7 +311,7 @@ else:
         message = teams.messages.create(CONFIG_DATA['WEBEX_ROOM_ID'], text=message_text)
 
     from email.message import EmailMessage
-    msg_body = "Please find the log file attached \n your local config backup script \n \n \n"
+    msg_body = "Please find the log file attached \n your loyal config backup script \n \n \n"
 
     msg = EmailMessage()
 
