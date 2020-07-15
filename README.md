@@ -65,7 +65,7 @@ _Its recommended to create unique credentials for scripting/API purposes._
 
 ## Testing
 
-If you want to test this script before using it in a production enviroment you can leverage the [DevNet Stealthwatch Sandbox Enviroment](https://devnetsandbox.cisco.com/RM/Diagram/Index/3c832112-cf88-4e74-a439-6fdb47a5882e?diagramType=Topology)
+If you want to test this script before using it in a production environment you can leverage the [DevNet Stealthwatch Sandbox environment](https://devnetsandbox.cisco.com/RM/Diagram/Index/3c832112-cf88-4e74-a439-6fdb47a5882e?diagramType=Topology)
 
 ## Usage
 
