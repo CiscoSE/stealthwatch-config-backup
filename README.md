@@ -5,8 +5,10 @@
 This script will downloaded all config backups from the Stealthwatch Enterprise Central Manager,
 for all the appliances managed by Stealthwatch Enterprise Central Manager.
 
+All appliances need to be reachable with ICMP from the server where this script is installed for the script to work properly.
+
 It will not create a backup of the flow data on every Flow Collector.
-The script will only download the config backups. And the script does not remove any backups from the path where the backups are downloaded to.
+The script will only download the config backups. The script does not remove any backups from the path where the backups are downloaded to.
 
 This script is available for use by the Cisco DevNet community through Code Exchange. For more information on the Stealthwatch Enterprise REST API, please see the following link: https://developer.cisco.com/docs/stealthwatch/enterprise/
 
@@ -20,10 +22,14 @@ Version 1.1.2
 - WebEx Teams support  
 - Email of logfile  
 
+Version 1.1.3
+- Added check to see if all appliances up and reachable.
+
 ## Use Case Description
 
 This script uses the Stealthwatch Enterprise API's to download all backups files present in Central Management.  
-By using this script, the backups files can be stored outside the Stealthwatch environment for save keeping.
+By using this script the backups files can be stored outside the Stealthwatch environment for save keeping.
+
 
 ## Installation
 
@@ -34,7 +40,7 @@ By using this script, the backups files can be stored outside the Stealthwatch e
    - ensure you use the correct pip executable for your instance of Python 3
 4. Stealthwatch user credentials with the "Master Admin" role assigned.
    - User roles are configured in the Stealthwatch web interface. Simply navigate to _Global Settings -> User Management_.
-5. It is possible to integrate the script with Webex Teams. In order to do that, an API Access Token (WEBEX_ACCESS_TOKEN) and a Room ID (WEBEX_ROOM_IDneed to be entered in the config.json file. Please retrieve your key from: https://developer.webex.com/docs/api/getting-started. Then create a dedicated Webex Teams space for these notifications and retrieve the Room ID from: https://developer.webex.com/docs/api/v1/rooms/list-rooms. Please be aware that the personal token from the getting started page only works for 12 hours. To be able to have a key that works longer then 12 hours its recommended to leverage a [Webex Teams bot](https://developer.webex.com/my-apps/new/bot) and invite that bot to a  room for the notifications.
+5. It is possible to integrate the script with Webex Teams. In order to do that, an API Access Token (WEBEX_ACCESS_TOKEN) and a Room ID (WEBEX_ROOM_ID need to be entered in the config.json file. Please retrieve your key from: https://developer.webex.com/docs/api/getting-started. Then create a dedicated Webex Teams space for these notifications and retrieve the Room ID from: https://developer.webex.com/docs/api/v1/rooms/list-rooms. Please be aware that the personal token from the getting started page only works for 12 hours. To be able to have a key that works longer then 12 hours its recommended to leverage a [Webex Teams bot](https://developer.webex.com/my-apps/new/bot) and invite that bot to a  room for the notifications.
 6. It is also possible to have the script send it log file (swe_backup.log) using email. For this you need to configure the options Email subject (MAIL_SUBJECT), adress to send email to (TO_EMAIL), from email address (FROM_EMAIL), and SMPT Server to us (SMTP_SERVER) in config.json.
 
 
@@ -65,7 +71,7 @@ _Its recommended to create unique credentials for scripting/API purposes._
 
 ## Testing
 
-If you want to test this script before using it in a production environment you can leverage the [DevNet Stealthwatch Sandbox environment](https://devnetsandbox.cisco.com/RM/Diagram/Index/3c832112-cf88-4e74-a439-6fdb47a5882e?diagramType=Topology)
+If you want to test this script before using it in a production environment you can leverage the [DevNet Stealthwatch Sandbox Environment](https://devnetsandbox.cisco.com/RM/Diagram/Index/3c832112-cf88-4e74-a439-6fdb47a5882e?diagramType=Topology)
 
 ## Usage
 
@@ -100,6 +106,24 @@ __Open A Case__
   - For worldwide support numbers: [www.cisco.com/en/US/partner/support/tsd_cisco_worldwide_contacts.html](www.cisco.com/en/US/partner/support/tsd_cisco_worldwide_contacts.html)
   - If you don't have a Cisco service contract, send an email to swatchc-support@cisco.com describing your problem.
 
+## Docker Container
+
+This script is Docker friendly, and can be run as a container.  
+When running it from a container it its best to store the backups and the logs file outside the container for easy access.
+
+To build the container, run the script once to populate the config.json file, or manually populate the configuration variables.  
+To make sure the below ```docker run``` command work please set the ```BACKUP_DIR``` to ```/backups```
+
+Once the config.json file is populated, run the following command to build the container:
+
+``` docker build -t swe_backup_config . ```
+
+You can then run the container as a daemon with the following command, for storage of the backups and logs files outside of the container.  
+You can add -rm to the command to automatically have the container removed after run:
+
+``` docker run -d  -it --name swe_backup_config --mount type=bind,source="<path to where to store backups>",target="/backups" --mount type=bind,source="<path to where to store logs>",target="/logs" ```
+
+
 ## Getting involved
 
 Contributions to this code are welcome and appreciated. See [CONTRIBUTING](https://github.com/CiscoDevNet/cognitive-intelligence-syslog-exporter/blob/master/CONTRIBUTING.md) for details. Please adhere to our [Code of Conduct](https://github.com/CiscoDevNet/cognitive-intelligence-syslog-exporter/blob/master/CODE_OF_CONDUCT.md) at all times.
@@ -107,7 +131,6 @@ Contributions to this code are welcome and appreciated. See [CONTRIBUTING](https
 ## License info
 
 This code is licensed under the BSD 3-Clause License... see [LICENSE](https://github.com/CiscoDevNet/cognitive-intelligence-syslog-exporter/blob/master/LICENSE) for details
-
 
 ## Author(s)
 
