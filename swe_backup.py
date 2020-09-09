@@ -14,6 +14,9 @@ Version 1.1.2
     - WebEx Teams support
     - Email of logfile
 
+Version 1.1.3
+    - Added check to see if all appliances up and reachable.
+
 For more information on this API, please visit:
 https://developer.cisco.com/docs/stealthwatch/
 
@@ -29,6 +32,7 @@ Depencency Installation:
     $ pip install webexteamssdk
     $ pip install smtplib
     $ pip install logging
+    $ pip install subprocess
 
 System Requirements:
     Stealthwatch Version: 7.0.0 or higher
@@ -65,6 +69,7 @@ import webexteamssdk
 import logging
 import logging.handlers
 import smtplib
+import subprocess as sp
 try:
     requests.packages.urllib3.disable_warnings()
 except:
@@ -122,6 +127,7 @@ def loadConfig():
             "FROM_EMAIL": "",
             "TO_EMAIL": "",
             "EMAIL_SUBJECT": "",
+            "EMAIL_SUBJECT_DOWN": "",
         }
 
 # A function to store CONFIG_DATA to file
@@ -184,6 +190,50 @@ if(response.status_code == 200):
     response = api_session.request("GET", url, verify=False,)
 
     returned_data = json.loads(response.text)
+
+    list_ip = []
+
+    logger.info("Checking if all appliances are up")
+
+    for Appliance_IP in returned_data:
+        list_ip.append(Appliance_IP["ipAddress"])
+
+    for ip in list_ip:
+        status,result = sp.getstatusoutput("ping -c1 " + ip)
+        if status == 1:
+            logger.info("Appliance with ip " + ip + " is down, sending email and then the script wil exit")
+
+            # Post to Webex teams
+            if CONFIG_DATA['WEBEX_ACCESS_TOKEN'] == '' or CONFIG_DATA['WEBEX_ROOM_ID'] == '':
+                # user feed back
+                logger.info("Webex Teams not set, not sending updates to Webex Teams")
+            else:
+                message_text = f"Appliance with ip " + ip + " is down the script will exit"
+
+                # instantiate the Webex handler with the access token
+                teams = webexteamssdk.WebexTeamsAPI(CONFIG_DATA['WEBEX_ACCESS_TOKEN'])
+
+                # post a message to the specified Webex room
+                message = teams.messages.create(CONFIG_DATA['WEBEX_ROOM_ID'], text=message_text)
+
+            # Send email
+            message_text = f"Email is configured so I'm sending log file using email."
+            from email.message import EmailMessage
+            msg_body = "The appliance with" + ip + "is down script is exiting. \n Please make sure all appliance are up and reachable before running this script \n \n \n"
+
+            msg = EmailMessage()
+            msg['Subject'] = (CONFIG_DATA['EMAIL_SUBJECT_DOWN'])
+            msg['From'] = (CONFIG_DATA['FROM_EMAIL'])
+            msg['To'] = (CONFIG_DATA['TO_EMAIL'])
+            msg.set_content(msg_body)
+
+            s = smtplib.SMTP(CONFIG_DATA['SMTP_SERVER'])
+            s.send_message(msg)
+            quit()
+        else:
+            logger.info("Appliance with ip " + ip + " is UP")
+
+    logger.info("All appliances are reachable script will continue")
 
     list_ids = []
 
