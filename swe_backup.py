@@ -244,8 +244,8 @@ if(response.status_code == 200):
         url = "https://" + CONFIG_DATA['SMC_IP'] +"/cm/support/appliance/" + id + "/config-backup-file-list"
         response = api_session.request("GET", url,  verify=False,)
 
-        returned_data = json.loads(response.text)
-        config_backup_file_list = returned_data
+        returned_data_files = json.loads(response.text)
+        config_backup_file_list = returned_data_files
 
         logger.info("Downloading backups for appliance with ID: "  + id + "")
 
