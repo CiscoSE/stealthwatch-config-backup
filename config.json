@@ -4,6 +4,7 @@
     "SMC_PASSWORD": "",
     "BACKUP_DIR": "",
     "EMAIL_SUBJECT": "",
+    "EMAIL_SUBJECT_DOWN": "",
     "TO_EMAIL": "",
     "FROM_EMAIL": "",
     "SMTP_SERVER": "",
