@@ -23,7 +23,7 @@ Version 1.1.2
 - Email of logfile  
 
 Version 1.1.3
-- Added check to see if all appliances up and reachable.
+- Added check to see if all appliances are up and reachable.
 
 ## Use Case Description
 
