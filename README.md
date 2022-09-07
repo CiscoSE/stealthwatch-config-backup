@@ -103,7 +103,7 @@ __Open A Case__
   - To open a case by web: [http://www.cisco.com/c/en/us/support/index.html](http://www.cisco.com/c/en/us/support/index.html)
   - To open a case by email: tac@cisco.com
   - For phone support: 1-800-553-2447 (U.S.)
-  - For worldwide support numbers: [www.cisco.com/en/US/partner/support/tsd_cisco_worldwide_contacts.html](www.cisco.com/en/US/partner/support/tsd_cisco_worldwide_contacts.html)
+  - For worldwide support numbers: [www.cisco.com/en/US/partner/support/tsd_cisco_worldwide_contacts.html](https://www.cisco.com/c/en/us/support/web/tsd-cisco-worldwide-contacts.html)
   - If you don't have a Cisco service contract, send an email to swatchc-support@cisco.com describing your problem.
 
 ## Docker Container
